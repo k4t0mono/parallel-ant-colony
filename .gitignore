@@ -2,6 +2,8 @@
 # Created by https://www.gitignore.io/api/vim,code,python
 # Edit at https://www.gitignore.io/?templates=vim,code,python
 
+*.png
+
 ### Code ###
 # Visual Studio Code - https://code.visualstudio.com/
 .settings/

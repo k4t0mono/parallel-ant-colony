@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 import math
 import pprint
 from PheromoneMatrix import PheromoneMatrix
@@ -44,7 +47,9 @@ class Graph:
                     best_solution = path
             # Manda para todos processos a matriz media de feromonio para calculo da proxima geração
             self.update_pheromone_matrix(ants)
-            print('Rank: {:1d} - fim da geração {:3d}'.format(self.rank, gen))
+            if gen % 5 == 0:
+                self.update_global()
+            # print('Rank: {:1d} - fim da geração {:3d}'.format(self.rank, gen))
 
         # retorna o melhor custo encontrado
         return (best_cost, best_solution)
@@ -58,18 +63,17 @@ class Graph:
                 i = ant.path[k - 1]
                 j = ant.path[k]
                 self.pm.increase(i, j, 1)
-        print(self.pm.matrix[0])
-        self.update_global()
     
     # Reunindo os valores ao processo pai
     def update_global(self):
-        print('Rank {} antes do bcast: {}'.format(self.rank, self.pm.matrix[0]))
+        # print('Rank {} antes do bcast: {}'.format(self.rank, self.pm.matrix[0]))
 
         # Processo pai pega todos valores dos outros processos
         pm2 = self.comm.gather(self.pm.matrix, root=0)
         
         # Calculando uma matriz media para a matriz de feromonio
         if(self.rank == 0):
+            # print('update_global')
             for m in pm2[1:]:
                 for i in range(self.size):
                     for j in range(self.size):
@@ -81,7 +85,7 @@ class Graph:
 
         # Envia os dados a todos outros processos para atualizarem essa matriz de feromonio para a matriz media
         self.pm.matrix = self.comm.bcast(self.pm.matrix, root=0)
-        print('Rank {} fim do bcast: {}'.format(self.rank, self.pm.matrix[0]))
+        # print('Rank {} fim do bcast: {}'.format(self.rank, self.pm.matrix[0]))
 
     # Calcula o tamanho do circuito
     def calc_lenght(self, circuit):

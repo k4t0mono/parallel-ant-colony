@@ -1,4 +1,6 @@
-# from Graph import Graph
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 from PheromoneMatrix import PheromoneMatrix
 from numpy.random import choice
 

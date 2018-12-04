@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 class PheromoneMatrix:
 
     def __init__(self, size, rho):

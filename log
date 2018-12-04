@@ -1,0 +1,81 @@
+Bash version 4.4.19(1)-release...
+Rank: 0
+Rank: 1
+cost = 123222.0172555623
+
+real	0m48,153s
+user	1m7,803s
+sys	0m1,762s
+\n\n****\n\n
+Rank: 0
+Rank: 1
+cost = 122182.65135892488
+
+real	0m43,533s
+user	1m0,734s
+sys	0m0,572s
+\n\n****\n\n
+Rank: 1
+Rank: 0
+cost = 123222.83266457521
+
+real	0m48,073s
+user	1m0,756s
+sys	0m0,741s
+\n\n****\n\n
+Rank: 1
+Rank: 0
+cost = 123298.33448706902
+
+real	0m51,142s
+user	1m9,798s
+sys	0m1,571s
+\n\n****\n\n
+Rank: 0
+Rank: 1
+cost = 122805.54299409743
+
+real	0m45,475s
+user	1m0,928s
+sys	0m0,735s
+\n\n****\n\n
+Rank: 0
+Rank: 1
+cost = 121098.65622543245
+
+real	0m45,099s
+user	1m2,189s
+sys	0m1,041s
+\n\n****\n\n
+Rank: 0
+Rank: 1
+cost = 120805.69672036055
+
+real	0m45,533s
+user	1m2,240s
+sys	0m0,692s
+\n\n****\n\n
+Rank: 0
+Rank: 1
+cost = 122403.33219052623
+
+real	0m44,123s
+user	1m1,363s
+sys	0m0,537s
+\n\n****\n\n
+Rank: 0
+Rank: 1
+cost = 118024.25685470438
+
+real	0m49,114s
+user	1m10,873s
+sys	0m1,947s
+\n\n****\n\n
+Rank: 1
+Rank: 0
+cost = 119808.09867466039
+
+real	0m46,995s
+user	1m3,034s
+sys	0m0,844s
+\n\n****\n\n
