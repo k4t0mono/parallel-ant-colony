@@ -16,6 +16,7 @@ class Ant:
         self.passed[start] = True
         for i in range(self.graph.size - 1):
             c.append(self.find_next(c[-1]))
+        c.append(start)
         self.path = c
         return c
 

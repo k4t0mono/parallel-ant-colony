@@ -2,6 +2,7 @@ import math
 import pprint
 from PheromoneMatrix import PheromoneMatrix
 from Ant import Ant
+from mpi4py import MPI
 
 class Graph:
 
@@ -18,6 +19,8 @@ class Graph:
         #         self.adj_matrix[i].append((0, 0))
         self.num_ants = num_ants
         self.generations = generations
+        self.comm = MPI.COMM_WORLD
+        self.rank = self.comm.Get_rank()
     
     def solve(self):
         best_cost = None
@@ -35,41 +38,38 @@ class Graph:
                     best_cost = cost
                     best_solution = path
             self.update_pheromone_matrix(ants)
+            print('Rank: {:1d} - fim da geração {:3d}'.format(self.rank, gen))
 
         return (best_cost, best_solution)
                 
-
-    # def solve(self, graph: Graph):
-    #     """
-    #     :param graph:
-    #     """
-    #     best_cost = float('inf')
-    #     best_solution = []
-    #     for gen in range(self.generations):
-    #         # noinspection PyUnusedLocal
-    #         ants = [_Ant(self, graph) for i in range(self.ant_count)]
-    #         for ant in ants:
-    #             for i in range(graph.rank - 1):
-    #                 ant._select_next()
-    #             ant.total_cost += graph.matrix[ant.tabu[-1]][ant.tabu[0]]
-    #             if ant.total_cost < best_cost:
-    #                 best_cost = ant.total_cost
-    #                 best_solution = [] + ant.tabu
-    #             # update pheromone
-    #             ant._update_pheromone_delta()
-    #         self._update_pheromone(graph, ants)
-    #         # print('generation #{}, best cost: {}, path: {}'.format(gen, best_cost, best_solution))
-    #     return best_solution, best_cost
-
     def update_pheromone_matrix(self, ants):
         self.pm.evaporate_pheromones()
         for ant in ants:
             for k in range(1, len(ant.path)):
                 i = ant.path[k - 1]
                 j = ant.path[k]
-                self.pm.increase(i, j, 10) 
+                self.pm.increase(i, j, 1) 
                 # TODO coloquei 10 como valor fixo de aumento de feromonios,
                 # podemos variar
+        print(self.pm.matrix[0])
+        self.update_global()
+    
+    def update_global(self):
+        print('Rank {} antes do bcast: {}'.format(self.rank, self.pm.matrix[0]))
+        pm2 = self.comm.gather(self.pm.matrix, root=0)
+
+        if(self.rank == 0):
+            for m in pm2[1:]:
+                for i in range(self.size):
+                    for j in range(self.size):
+                        self.pm.matrix[i][j] += m[i][j]
+        
+            for i in range(self.size):
+                    for j in range(self.size):
+                        self.pm.matrix[i][j] /= self.comm.Get_size()
+            
+        self.pm.matrix = self.comm.bcast(self.pm.matrix, root=0)
+        print('Rank {} fim do bcast: {}'.format(self.rank, self.pm.matrix[0]))
 
 
     def calc_lenght(self, circuit):
