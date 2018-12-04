@@ -1,81 +1,101 @@
 Bash version 4.4.19(1)-release...
-Rank: 0
 Rank: 1
-cost = 123222.0172555623
+Rank: 0
+Rank: 3
+Rank: 2
+cost = 122640.1240730135
 
-real	0m48,153s
-user	1m7,803s
-sys	0m1,762s
+real	0m49,061s
+user	1m16,422s
+sys	0m16,840s
 \n\n****\n\n
 Rank: 0
+Rank: 2
 Rank: 1
-cost = 122182.65135892488
+Rank: 3
+cost = 123213.01364669456
 
-real	0m43,533s
-user	1m0,734s
-sys	0m0,572s
+real	0m42,693s
+user	1m10,750s
+sys	0m8,556s
+\n\n****\n\n
+Rank: 3
+Rank: 2
+Rank: 0
+Rank: 1
+cost = 122216.1269693838
+
+real	0m42,101s
+user	1m13,760s
+sys	0m10,139s
+\n\n****\n\n
+Rank: 0
+Rank: 2
+Rank: 1
+Rank: 3
+cost = 122278.6642801795
+
+real	0m41,921s
+user	1m11,758s
+sys	0m6,498s
+\n\n****\n\n
+Rank: 1
+Rank: 3
+Rank: 2
+Rank: 0
+cost = 122318.7501494096
+
+real	0m44,050s
+user	1m13,561s
+sys	0m8,775s
+\n\n****\n\n
+Rank: 3
+Rank: 1
+Rank: 2
+Rank: 0
+cost = 117610.71319139923
+
+real	0m40,599s
+user	1m13,056s
+sys	0m7,950s
+\n\n****\n\n
+Rank: 3
+Rank: 1
+Rank: 0
+Rank: 2
+cost = 119950.484512546
+
+real	0m47,055s
+user	1m14,746s
+sys	0m16,055s
+\n\n****\n\n
+Rank: 1
+Rank: 3
+Rank: 0
+Rank: 2
+cost = 122529.6720913621
+
+real	0m44,886s
+user	1m14,733s
+sys	0m11,700s
+\n\n****\n\n
+Rank: 0
+Rank: 3
+Rank: 2
+Rank: 1
+cost = 123476.25525129399
+
+real	0m41,092s
+user	1m9,385s
+sys	0m9,448s
 \n\n****\n\n
 Rank: 1
 Rank: 0
-cost = 123222.83266457521
+Rank: 3
+Rank: 2
+cost = 122123.58986702397
 
-real	0m48,073s
-user	1m0,756s
-sys	0m0,741s
-\n\n****\n\n
-Rank: 1
-Rank: 0
-cost = 123298.33448706902
-
-real	0m51,142s
-user	1m9,798s
-sys	0m1,571s
-\n\n****\n\n
-Rank: 0
-Rank: 1
-cost = 122805.54299409743
-
-real	0m45,475s
-user	1m0,928s
-sys	0m0,735s
-\n\n****\n\n
-Rank: 0
-Rank: 1
-cost = 121098.65622543245
-
-real	0m45,099s
-user	1m2,189s
-sys	0m1,041s
-\n\n****\n\n
-Rank: 0
-Rank: 1
-cost = 120805.69672036055
-
-real	0m45,533s
-user	1m2,240s
-sys	0m0,692s
-\n\n****\n\n
-Rank: 0
-Rank: 1
-cost = 122403.33219052623
-
-real	0m44,123s
-user	1m1,363s
-sys	0m0,537s
-\n\n****\n\n
-Rank: 0
-Rank: 1
-cost = 118024.25685470438
-
-real	0m49,114s
-user	1m10,873s
-sys	0m1,947s
-\n\n****\n\n
-Rank: 1
-Rank: 0
-cost = 119808.09867466039
-
-real	0m46,995s
-user	1m3,034s
-sys	0m0,844s
+real	0m45,765s
+user	1m14,102s
+sys	0m12,847s
 \n\n****\n\n
