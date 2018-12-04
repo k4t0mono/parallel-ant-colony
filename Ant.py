@@ -3,7 +3,8 @@ from PheromoneMatrix import PheromoneMatrix
 from numpy.random import choice
 
 class Ant:
-
+    
+    # Construtor da classe Ant
     def __init__(self, graph):
         self.graph = graph
         self.passed = []
@@ -11,6 +12,7 @@ class Ant:
         for i in range(graph.size):
             self.passed.append(False)
 
+    # Metodo para encontrar um circuito a partir do vertice inicial (start)
     def find_circuit(self, start=0):
         c = [start]
         self.passed[start] = True
@@ -20,24 +22,21 @@ class Ant:
         self.path = c
         return c
 
+    # Decisão do proximo vertice a se seguir
     def find_next(self, vertex):
         neighbors = self.graph.neighboors_of(vertex)
         possibles = self.remove_passed(neighbors)
         prob = self.calc_probs(vertex, possibles)
-        # print("probs", prob)
         draw = choice(possibles, 1, p=prob)[0]
-        # print("escolha", draw)
-
-        # print(possibles)
-        # print(prob)
-        # print(draw)
 
         self.passed[draw] = True
         return draw
-
+    
+    # remove da lista de vizinhos os nós já visitados
     def remove_passed(self, neighbors):
         return [x for x in neighbors if not self.passed[x]]
 
+    # Calcula a propabilidade referente a um vizinho deste
     def calc_probs(self, vertex, neighbors):
         phs_dict = {}
         sum = 0
@@ -52,8 +51,8 @@ class Ant:
 
         return probs
 
+    # Calcula a força com que o feromonio vai ponderar na probabilidade
     def calc_pheromone_strength(self, a, b):
-        #TODO calcular usando alpha e beta
         ph = self.graph.pm.get(a, b)
         (_, d) = self.graph.get(a, b)
 

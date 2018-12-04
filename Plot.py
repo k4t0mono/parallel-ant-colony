@@ -2,14 +2,14 @@ import operator
 
 import matplotlib.pyplot as plt
 
-
+# Classe para plotar o grafico de representação
 def plot(points, path: list):
     x = []
     y = []
     for point in points:
         x.append(point[0])
         y.append(point[1])
-
+    
     y = list(map(operator.sub, [max(y) for i in range(len(points))], y))
     plt.plot(x, y, 'co')
 
