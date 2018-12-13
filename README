@@ -1,0 +1,17 @@
+# Parallel Ant Conoly
+
+## Requesitos
+
+- OpenMPI
+- mpi4py
+- numpy
+- matplotlib
+
+## Modo de Usar
+
+Use o comando `mpirun main.py <test> <num-formigas> <num-geracaos> <alpha> <beta> <rho>` para rodar o programa.
+- `test` deve ser um aqruivo contendo os vertices no seguinte formato `id x y`.
+- `alpha` deve ser um valor normalizado que representa a importância que cada formiga irá dar para a trilha de feromônio.
+- `alpha` deve ser um valor normalizado que representa a importância que cada formiga irá dar para a distância entre os vétices.
+- `rho` deve ser um valor normalizado que representa a taxa de evaporação de feromônio.
+- Para plotar os resultados é necessario a biblioteca `matplotlib`
